@@ -1,7 +1,7 @@
 var expect = require('chai').expect
 var FontScaler = require('./index')
 
-describe('Font Scalar', function() {
+describe('Font Scaler', function() {
 
     it('constrained by width', function() {
         // height is larger than the width constraint
