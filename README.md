@@ -14,6 +14,7 @@ Currently it assumes that you use a monospaced font 13px in height, 6px in width
 ## Usage
 
 ```
+  var ScaleText = require('scale-text')
   var idealSize = new ScaleText(['word word word'], 20, 100).ideal()
 
   console.log('ideal font size is ', idealSize);
