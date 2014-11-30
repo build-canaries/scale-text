@@ -1,7 +1,7 @@
 {
-  "name": "fontscaler",
+  "name": "scale-text",
   "version": "0.1.0",
-  "description": "Scales text to the size of the enclosing container",
+  "description": "Scales text to the size (width and height) of the enclosing container",
   "main": "index.js",
   "devDependencies": {
     "mocha": "1.16.2",
@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/build-canaries/fontscaler.git"
+    "url": "https://github.com/build-canaries/scale-text.git"
   },
   "author": "Build Canaries",
   "license": "Eclipse Public License",
   "bugs": {
-    "url": "https://github.com/build-canaries/fontscaler/issues"
+    "url": "https://github.com/build-canaries/scale-text/issues"
   }
 }

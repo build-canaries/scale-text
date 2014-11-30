@@ -1,4 +1,4 @@
-function FontScaler(listOfText, height, width) {
+function ScaleText(listOfText, height, width) {
 
     var fontSizeForSingleLetter = 10
     var widthOfSingleLetter = 6
@@ -58,4 +58,4 @@ function FontScaler(listOfText, height, width) {
     }
 }
 
-module.exports = FontScaler
+module.exports = ScaleText

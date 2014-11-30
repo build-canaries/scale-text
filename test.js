@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-var FontScaler = require('./index')
+var ScaleText = require('./index')
 
 describe('Font Scaler', function() {
 
@@ -12,7 +12,7 @@ describe('Font Scaler', function() {
         // (100 / 42) * 10 = 23
         var width = 100
 
-        expect(new FontScaler(['word'], 50, width).ideal()).to.equal(23)
+        expect(new ScaleText(['word'], 50, width).ideal()).to.equal(23)
     })
 
     it('constrained by height', function() {
@@ -22,7 +22,7 @@ describe('Font Scaler', function() {
         // equation is (height / largestNumberOfLines) / heightOfSingleLetter * fontSizeForSingleLetter
         // (20 / 1) / 13 * 10 = 15
 
-        expect(new FontScaler(['word'], 20, 100).ideal()).to.equal(15)
+        expect(new ScaleText(['word'], 20, 100).ideal()).to.equal(15)
     })
 
     it('constrained by height over multiple lines', function() {
@@ -32,7 +32,7 @@ describe('Font Scaler', function() {
         // equation is (height / largestNumberOfLines) / heightOfSingleLetter * fontSizeForSingleLetter
         // (20 / 3) / 13 * 10 = 5
 
-        expect(new FontScaler(['word word word'], 20, 100).ideal()).to.equal(5)
+        expect(new ScaleText(['word word word'], 20, 100).ideal()).to.equal(5)
     })
 
 })

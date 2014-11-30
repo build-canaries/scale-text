@@ -1,20 +1,20 @@
-FontScaler
+Scale Text
 ==========
 
-A small library that scales text to the size of the enclosing container, making the longest word take up a whole ine.
+A small library that scales text to the size (width and height) of the enclosing container, making the longest word take up a whole ine.
 
-Currently it assumes that you use a monospaced font 13px in height, 6px in width at font-size 10px.
+Currently it assumes that you use a monospaced font 13px in height, 6px in width, when judged at font-size 10px.
 
 ## Installation
 
 ```
-  npm install fontscaler --save
+  npm install scale-text --save
 ```
 
 ## Usage
 
 ```
-  var idealSize = new FontScaler([["my", "wrapped", "text"], ["small"]], 50, 100).ideal()
+  var idealSize = new ScaleText(['word word word'], 20, 100).ideal()
 
   console.log('ideal font size is ', idealSize);
 ```
