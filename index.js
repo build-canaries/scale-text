@@ -1,19 +1,24 @@
+
 function ScaleText(listOfText, height, width) {
 
     var fontSizeForSingleLetter = 10
     var widthOfSingleLetter = 6
     var heightOfSingleLetter = 13
 
-    var fontPaddingInCharacters = 3
+    var fontPaddingInCharacters = 2
 
     function flatten(array) {
         return [].concat.apply([], array);
     }
 
     function findLongestWord() {
-        var words = flatten(listOfText.map(function (item) {
+        var individualWords = flatten(listOfText.map(function (item) {
             return item.split(' ')
         }))
+        return longestWordInArray(individualWords);
+    }
+
+    function longestWordInArray(words) {
         return words.reduce(function (largestFound, candidate) {
             return Math.max(candidate.length, largestFound)
         }, 0)
@@ -33,6 +38,15 @@ function ScaleText(listOfText, height, width) {
         })
 
         return lineNumber
+    }
+
+    this.singleLineIdeal = function() {
+        var longestWord = longestWordInArray(listOfText) + fontPaddingInCharacters
+        var longestWordSize = (widthOfSingleLetter * longestWord)
+        var fontSizeByWidth = (width / longestWordSize) * fontSizeForSingleLetter
+
+        return Math.floor(
+            Math.min(fontSizeByWidth, this.maxFontSizeByHeight()))
     }
 
     this.maxFontSizeByWidth = function () {

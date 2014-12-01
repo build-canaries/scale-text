@@ -1,18 +1,18 @@
 var expect = require('chai').expect
 var ScaleText = require('./index')
 
-describe('Font Scaler', function() {
+describe('height and width bound', function() {
 
     it('constrained by width', function() {
         // height is larger than the width constraint
 
-        // longest word is size 4, plus padding of 3 so longest line is 7 characters
-        // width of single letter is 6, so longest line is 42
+        // longest word is size 4, plus padding of 2 so longest line is 6 characters
+        // width of single letter is 6, so longest line is 36
         // equation is (width / longestLineSize) * fontSizeForSingleLetter
-        // (100 / 42) * 10 = 23
+        // (100 / 36) * 10 = 27
         var width = 100
 
-        expect(new ScaleText(['word'], 50, width).ideal()).to.equal(23)
+        expect(new ScaleText(['word'], 50, width).ideal()).to.equal(27)
     })
 
     it('constrained by height', function() {
@@ -34,5 +34,15 @@ describe('Font Scaler', function() {
 
         expect(new ScaleText(['word word word'], 20, 100).ideal()).to.equal(5)
     })
+})
 
+describe('single line', function() {
+    it('constrained by width', function() {
+        // word is size 10
+        // each character is 6 pixels wide at size 10
+        // there is a padding of 2 characters which ads 12 pixels
+        // the size to give font size 10 is 72 width
+        // the height is ignored
+        expect(new ScaleText(['0123456789'], 50, 72).singleLineIdeal()).to.equal(10)
+    })
 })
