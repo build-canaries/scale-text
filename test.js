@@ -44,5 +44,7 @@ describe('single line', function() {
         // the size to give font size 10 is 72 width
         // the height is ignored
         expect(new ScaleText(['0123456789'], 50, 72).singleLineIdeal()).to.equal(10)
+        expect(new ScaleText(["mesos trunk ubuntu build out of src disable java disable python disable webui"],
+            150, 420).singleLineIdeal()).to.equal(8)
     })
 })

@@ -15,10 +15,10 @@ function ScaleText(listOfText, height, width) {
         var individualWords = flatten(listOfText.map(function (item) {
             return item.split(' ')
         }))
-        return longestWordInArray(individualWords);
+        return longestStringInArray(individualWords);
     }
 
-    function longestWordInArray(words) {
+    function longestStringInArray(words) {
         return words.reduce(function (largestFound, candidate) {
             return Math.max(candidate.length, largestFound)
         }, 0)
@@ -40,15 +40,6 @@ function ScaleText(listOfText, height, width) {
         return lineNumber
     }
 
-    this.singleLineIdeal = function() {
-        var longestWord = longestWordInArray(listOfText) + fontPaddingInCharacters
-        var longestWordSize = (widthOfSingleLetter * longestWord)
-        var fontSizeByWidth = (width / longestWordSize) * fontSizeForSingleLetter
-
-        return Math.floor(
-            Math.min(fontSizeByWidth, this.maxFontSizeByHeight()))
-    }
-
     this.maxFontSizeByWidth = function () {
         var longestWord = findLongestWord() + fontPaddingInCharacters
         var longestWordSize = (widthOfSingleLetter * longestWord)
@@ -66,9 +57,19 @@ function ScaleText(listOfText, height, width) {
         return maximumFontHeightInPixels * fontSizeForSingleLetter
     }
 
+    this.singleLineIdeal = function() {
+        var longestSentence = longestStringInArray(listOfText) + fontPaddingInCharacters
+        var longestSentenceSize = (widthOfSingleLetter * longestSentence)
+        var fontSizeByWidth = (width / longestSentenceSize) * fontSizeForSingleLetter
+
+        var maximumFontHeightInPixels = height / heightOfSingleLetter
+        var fontSizeByHeight = maximumFontHeightInPixels * fontSizeForSingleLetter
+
+        return Math.floor(Math.min(fontSizeByWidth, fontSizeByHeight))
+    }
+
     this.ideal = function () {
-        return Math.floor(
-            Math.min(this.maxFontSizeByWidth(), this.maxFontSizeByHeight()))
+        return Math.floor(Math.min(this.maxFontSizeByWidth(), this.maxFontSizeByHeight()))
     }
 }
 
