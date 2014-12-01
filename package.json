@@ -1,6 +1,6 @@
 {
   "name": "scale-text",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Scales text to the size (width and height) of the enclosing container",
   "main": "index.js",
   "devDependencies": {
