@@ -1,3 +1,5 @@
+This library is **deprecated** as its functionality has been added directly to Nevergreen.
+
 Scale Text
 ==========
 
