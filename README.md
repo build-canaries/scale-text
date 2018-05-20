@@ -1,7 +1,8 @@
-This library is **deprecated** as its functionality has been added directly to Nevergreen.
+# This library is no longer maintained
 
-Scale Text
-==========
+This library has been **deprecated** as its functionality has been added directly to the [Nevergreen](https://github.com/build-canaries/nevergreen) codebase.
+
+# Scale Text
 
 A small library that scales text to the size (width and height) of the enclosing container, making the longest word take up a whole ine.
 
